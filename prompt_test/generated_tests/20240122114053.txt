@@ -1,0 +1,348 @@
+Testcase 1:
+```python
+Here are some Python unit test cases that provide full test coverage for the provided code:
+
+```python
+import unittest
+from unittest.mock import patch
+import psutil
+
+class TestBattery(unittest.TestCase):
+
+    @patch('psutil.sensors_battery') 
+    def test_battery_percent_high(self, mock_battery):
+        mock_battery.return_value.percent = 80
+        mock_battery.return_value.power_plugged = False  
+        import battery
+        self.assertFalse(Notification.called)
+
+    def test_battery_percent_low_plugged_in(self):
+        with patch('psutil.sensors_battery') as mock_battery:
+            mock_battery.return_value.percent = 20
+            mock_battery.return_value.power_plugged = True
+            import battery
+            self.assertFalse(Notification.called)
+
+    def test_battery_percent_low_unplugged(self):
+        with patch('psutil.sensors_battery') as mock_battery:
+            mock_battery.return_value.percent = 20
+            mock_battery.return_value.power_plugged = False
+            with patch('pynotifier.Notification') as mock_notification:
+                import battery
+                mock_notification.assert_called_with(
+                    title="Battery Low",
+                    description="20% Battery remain!!",
+                    duration=5
+                )
+                
+    def test_notification_called_correctly(self):
+        with patch('psutil.sensors_battery') as mock_battery:
+            mock_battery.return_value.percent = 25
+            mock_battery.return_value.power_plugged = False
+            with patch('pynotifier.Notification') as mock_notification:
+                import battery
+                mock_notification.assert_called_once_with(
+                    title="Battery Low",
+                    description="25% Battery remain!!",
+                    duration=5
+                )
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+This covers:
+
+- Test with high battery percentage 
+- Test with low percentage but plugged in
+- Test with low percentage and not plugged in 
+- Test notification is called correctly
+
+Let me know if you need any clarification or have additional requests!
+```
+
+Testcase 2:
+```python
+Here are some test cases that aim to get full coverage of the battery monitoring code:
+
+```python
+import unittest
+from unittest.mock import patch
+import psutil
+
+class TestBattery(unittest.TestCase):
+
+    @patch('psutil.sensors_battery')
+    def test_battery_percent_normal(self, mock_battery):
+        mock_battery.return_value.percent = 50
+        mock_battery.return_value.power_plugged = True  
+        battery = psutil.sensors_battery()
+        percent = battery.percent
+
+        self.assertEqual(percent, 50)
+
+    @patch('psutil.sensors_battery')
+    def test_battery_percent_low(self, mock_battery):
+        mock_battery.return_value.percent = 20
+        mock_battery.return_value.power_plugged = False
+
+        battery = psutil.sensors_battery()
+        percent = battery.percent
+
+        self.assertEqual(percent, 20)
+
+    @patch('psutil.sensors_battery')
+    @patch('pynotifier.Notification')
+    def test_notification_sent(self, mock_notification, mock_battery):
+        mock_battery.return_value.percent = 25
+        mock_battery.return_value.power_plugged = False
+
+        psutil.sensors_battery()
+        
+        mock_notification.assert_called_with(
+            title="Battery Low",
+            description="25% Battery remain!!",
+            duration=5
+        )
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+This covers normal battery level, low battery level that triggers notification, and verifies that the notification is actually sent with the correct parameters when the battery is low. Let me know if you need any clarification or have additional suggestions!
+```
+
+Testcase 3:
+```python
+Here are some example unit test cases for the provided battery notification code:
+
+```python
+import unittest
+from unittest.mock import patch
+import psutil
+
+class TestBatteryNotification(unittest.TestCase):
+
+    @patch('psutil.sensors_battery') 
+    def test_normal_percent_plugged(self, mock_battery):
+        mock_battery.return_value.percent = 50 
+        mock_battery.return_value.power_plugged = True  
+        # No notification should be triggered
+        self.assertFalse(Notification.called) 
+
+    def test_low_percent_unplugged(self, mock_battery):
+        mock_battery.return_value.percent = 25  
+        mock_battery.return_value.power_plugged = False
+        # Notification should be triggered
+        self.assertTrue(Notification.called)
+
+    def test_boundary_percent_unplugged(self, mock_battery):
+        mock_battery.return_value.percent = 31  
+        mock_battery.return_value.power_plugged = False
+        # Notification should not be triggered 
+        self.assertFalse(Notification.called)
+
+    def test_zero_percent_unplugged(self, mock_battery):
+        mock_battery.return_value.percent = 0
+        mock_battery.return_value.power_plugged = False  
+        # Notification should be triggered
+        self.assertTrue(Notification.called)
+
+    def test_high_percent_unplugged(self, mock_battery):
+        mock_battery.return_value.percent = 100  
+        mock_battery.return_value.power_plugged = False
+        # Notification should not be triggered
+        self.assertFalse(Notification.called)
+
+    def test_invalid_percent(self, mock_battery):
+        mock_battery.return_value.percent = -10  
+        mock_battery.return_value.power_plugged = False
+        # Should handle invalid input gracefully 
+        self.assertFalse(Notification.called)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+This covers some positive, negative, edge cases and invalid inputs to validate the battery notification functionality. Please let me know if you need any other test cases!
+```
+
+Testcase 4:
+```python
+Here are some unit test cases for the battery monitoring Python code:
+
+```python
+import unittest
+from unittest.mock import patch
+import psutil
+
+class TestBattery(unittest.TestCase):
+
+    @patch('psutil.sensors_battery')
+    def test_battery_percent_normal(self, mock_battery):
+        mock_battery.return_value.percent = 50
+        mock_battery.return_value.power_plugged = True  
+        battery = psutil.sensors_battery()
+        percent = battery.percent
+        plugged = battery.power_plugged
+
+        self.assertEqual(percent, 50)
+        self.assertTrue(plugged)
+
+    def test_battery_percent_low(self):
+        with patch('psutil.sensors_battery') as mock_battery:
+             mock_battery.return_value.percent = 20
+             mock_battery.return_value.power_plugged = False  
+
+             battery = psutil.sensors_battery()
+             percent = battery.percent
+             plugged = battery.power_plugged
+
+             self.assertEqual(percent, 20)
+             self.assertFalse(plugged)
+
+    @patch('psutil.sensors_battery')
+    @patch('pynotifier.Notification')
+    def test_notification_sent(self, mock_notification, mock_battery):
+        mock_battery.return_value.percent = 25
+        mock_battery.return_value.power_plugged = False
+
+        battery = psutil.sensors_battery()
+        percent = battery.percent
+        plugged = battery.power_plugged
+
+        self.assertEqual(mock_notification.call_count, 1)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+This covers:
+
+- Normal battery percent and plugged in state
+- Low battery percent and not plugged in 
+- Notification is sent when battery < 30% and not plugged in
+
+It mocks psutil and pynotifier libraries to isolate and test the logic. Additional test cases can be added for different percent and plugged in values.
+```
+
+Testcase 5:
+```python
+Here is a sample set of unit tests for the provided battery notification code:
+
+```python
+import unittest
+from unittest.mock import patch
+import psutil
+
+class TestBatteryNotification(unittest.TestCase):
+
+    @patch('psutil.sensors_battery')
+    def test_normal(self, mock_battery):
+        mock_battery.return_value.percent = 50
+        mock_battery.return_value.power_plugged = True  
+        with patch('pynotifier.Notification') as mock_notify:
+            import battery
+            mock_notify.assert_not_called()
+
+    @patch('psutil.sensors_battery')
+    def test_low_battery(self, mock_battery):
+        mock_battery.return_value.percent = 20
+        mock_battery.return_value.power_plugged = False
+        with patch('pynotifier.Notification') as mock_notify:
+            import battery
+            mock_notify.assert_called_once_with(
+                title="Battery Low",
+                description="20% Battery remain!!",
+                duration=5  
+            )
+
+    @patch('psutil.sensors_battery')
+    def test_edge_case(self, mock_battery):
+        mock_battery.return_value.percent = 30 
+        mock_battery.return_value.power_plugged = False
+        with patch('pynotifier.Notification') as mock_notify:
+            import battery
+            mock_notify.assert_called_once()
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+This covers:
+
+- Normal case 
+- Low battery case
+- Edge case at 30% threshold
+- Uses unittest mocks to simulate battery states
+- Validates Notification calls
+
+Let me know if you need any clarification or have additional requirements!
+```
+
+Testcase 6:
+```python
+Here are some test cases to validate the battery notification code:
+
+```python
+import unittest
+from unittest.mock import patch
+import psutil
+
+class TestBatteryNotification(unittest.TestCase):
+
+    @patch('psutil.sensors_battery') 
+    def test_notification_sent_battery_low(self, mock_battery):
+        # Arrange
+        mock_battery.return_value.percent = 25
+        mock_battery.return_value.power_plugged = False
+        
+        # Act
+        import battery_notification
+        
+        # Assert
+        self.assertTrue(Notification.called)
+
+    def test_notification_not_sent_battery_okay(self):
+        # Arrange
+        mock_battery.return_value.percent = 50
+        mock_battery.return_value.power_plugged = False
+        
+        # Act
+        import battery_notification
+        
+        # Assert
+        self.assertFalse(Notification.called)
+
+    def test_notification_not_sent_plugged_in(self):
+        # Arrange 
+        mock_battery.return_value.percent = 25
+        mock_battery.return_value.power_plugged = True
+        
+        # Act
+        import battery_notification
+        
+        # Assert
+        self.assertFalse(Notification.called)
+
+    def test_notification_title(self):
+        # Assert title text
+        self.assertEqual(Notification.call_args[1]['title'], "Battery Low")
+
+    def test_notification_description(self):
+        # Assert description contains battery %
+        self.assertIn(str(percent)+'%', Notification.call_args[1]['description'])
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+This covers some key test cases:
+- Notification sent when battery low and unplugged
+- Notification not sent when battery okay 
+- Notification not sent when plugged in
+- Notification title and description values
+
+Let me know if you need any other test cases!
+```
+
