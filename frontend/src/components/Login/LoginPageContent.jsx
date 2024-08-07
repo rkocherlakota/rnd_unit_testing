@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import grid_logo from '../../assets/img/grid.svg';
-const loginClientId = process.env.LOGIN_CLIENT_ID;
+
+const clientId = process.env.REACT_APP_LOGIN_CLIENT_ID;
 
 const LoginPageContent = ({ onGoogleLoginSuccess, onGoogleLoginError, loading }) => {
+
   const [showLoginForm, setShowLoginForm] = useState(false);
 
   const handleSignInWithPasswordClick = () => {
@@ -32,7 +34,7 @@ const LoginPageContent = ({ onGoogleLoginSuccess, onGoogleLoginError, loading })
               </div>
             ) : (
               <div>
-                <GoogleOAuthProvider clientId ={loginClientId}>
+                <GoogleOAuthProvider clientId ={clientId}>
                   <GoogleLogin
                     onSuccess={onGoogleLoginSuccess}
                     onError={onGoogleLoginError}
