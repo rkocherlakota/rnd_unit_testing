@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import grid_logo from '../../assets/img/grid.svg';
+const loginClientId = process.env.LOGIN_CLIENT_ID;
 
 const LoginPageContent = ({ onGoogleLoginSuccess, onGoogleLoginError, loading }) => {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -13,6 +14,7 @@ const LoginPageContent = ({ onGoogleLoginSuccess, onGoogleLoginError, loading })
   const handleBackToGoogleLoginClick = () => {
     setShowLoginForm(false);
   };
+
 
   return (
     <div className="login-right">
@@ -30,7 +32,7 @@ const LoginPageContent = ({ onGoogleLoginSuccess, onGoogleLoginError, loading })
               </div>
             ) : (
               <div>
-                <GoogleOAuthProvider clientId="480512305521-hnir65u47v0rc3b5rk1u2vr9pjli5bq5.apps.googleusercontent.com">
+                <GoogleOAuthProvider clientId ={loginClientId}>
                   <GoogleLogin
                     onSuccess={onGoogleLoginSuccess}
                     onError={onGoogleLoginError}

@@ -1,4 +1,4 @@
 app.log
 results/
-
+.env
 target/
