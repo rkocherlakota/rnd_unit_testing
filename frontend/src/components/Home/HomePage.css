@@ -1,0 +1,341 @@
+.home-page {
+  padding-top: 60px;
+}
+.welcome-user {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.language {
+ margin-left: 20px;
+ cursor: pointer;
+ position: relative;
+font-weight: bold;
+ color: #000000;
+ font-size: 18px;
+ /* background-color: #0088ff; */
+ width: 100px;
+}
+.language::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  bottom: 0;
+  left: 105%;
+  height: 30px;
+  border-left: 2px solid #a1a1a1; 
+}
+
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+  background-color: #ffb800;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e3eb;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 2rem 25rem;
+  gap: 20px;
+  margin-bottom: 5rem;
+  border: 1px solid #0088ff;
+}
+
+.text-input,
+.file-input,
+.start-chat-button {
+  padding: 10px 50px;
+  /* margin-bottom: 10px; */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+.text-input {
+  flex: 2;
+  border: none;
+  /* border-radius: 28px; */
+  padding: 16px 0px;
+  outline: none;
+  min-height: 20px;
+  max-height: 200px;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 15px;
+}
+
+.text-input::-webkit-scrollbar {
+  width: 1px; /* Set the width of the scrollbar */
+}
+
+.text-input::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Radius of the scrollbar thumb */
+}
+
+.text-input::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+.fa-trash-can {
+  color: #646464;
+  cursor: pointer;
+}
+
+
+
+.file_and_send {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.send-btn {
+  flex: 1;
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 4px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.send-icon {
+  height: 30px;
+  width: 30px;
+}
+.start-chat-button:hover {
+  background-color: var(--color-secondary);
+  columns: #000;
+}
+
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: -10px;
+}
+
+.file-input-label {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+/* .file-input-label:hover::before {
+  content: "Select a file";
+  display: inline-block;
+  position: absolute;
+  top: -100%;
+  left: 5px;
+  padding: 5px;
+  font-size: 14px;
+  background-color: #fff; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80px;
+  white-space: nowrap; 
+} */
+.file-symbol {
+  margin-right: 5px;
+  padding: 4px;
+}
+
+.file-input {
+  display: none;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 25rem;
+  margin-bottom: 10rem;
+  gap: 15px;
+}
+.history-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 10px;
+  border-radius: 8px;
+
+  background-color: #fff;
+  padding: 20px;
+}
+.history-container li {
+  list-style: none;
+  color: var(--color-gray-1);
+}
+.searched-item {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Optional: Add margin for spacing between items */
+  gap: 10px;
+}
+
+.searched-item li {
+  flex: 1;
+  cursor: pointer;
+}
+.searched-item li:hover {
+  flex: 1;
+  cursor: pointer;
+  color: #000;
+}
+
+.delete {
+  cursor: pointer;
+  color: red;
+}
+.delete:hover {
+  color: #646464;
+}
+
+.information {
+  margin: 2rem 25rem;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+}
+.info-h {
+  margin: 10px 0px;
+}
+.information-ul {
+  display: flex;
+  flex-direction: column;
+  grid-area: 10px;
+  list-style: none;
+  line-height: 25px;
+}
+.information-ul li {
+  margin: 10px 0px;
+}
+
+.information_h {
+  font-style: italic;
+  color: #ffb800;
+  text-decoration: underline;
+}
+@media screen and (max-width: 1440px) and (min-width: 1920px) {
+  .chat-input-container {
+    margin: 2rem 30rem;
+  }
+  .history {
+    margin: 2rem 30rem;
+    margin-bottom: 10rem;
+  }
+  .searched-item {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .chat-input-container {
+    margin: 2rem 15rem 0 15rem;
+  }
+  .history {
+    margin: 2rem 15rem 0 15rem;
+    margin-bottom: 10rem;
+  }
+  .information {
+    margin: 2rem 15rem 0 15rem;
+  }
+}
+
+@media screen and (max-width: 886px) {
+  .chat-input-container {
+    margin: 2rem 6ch;
+  }
+  .history {
+    margin: 2rem 6rem;
+    margin-bottom: 10rem;
+  }
+  .information {
+    margin: 2rem 6rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .chat-input-container {
+    margin: 2rem 5rem;
+  }
+  .history {
+    margin: 2rem 5rem;
+    margin-bottom: 10rem;
+  }
+  .information {
+    margin: 2rem 5rem;
+  }
+}
+
+@media screen and (max-width: 592px) {
+  .chat-input-container {
+    margin: 2rem 3rem;
+  }
+  .history {
+    margin: 2rem 3rem;
+    margin-bottom: 10rem;
+  }
+  .searched-item {
+    width: 400px;
+  }
+  .information {
+    margin: 2rem 3rem;
+  }
+}
+@media screen and (max-width: 886px) {
+  .chat-input-container {
+    margin: 2rem 3ch;
+  }
+  .history {
+    margin: 2rem 3rem;
+    margin-bottom: 10rem;
+  }
+  .searched-item {
+    width: 300px;
+  }
+  .information {
+    margin: 2rem 3rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .welcome-user {
+    font-size: 20px;
+  }
+  .chat-input-container {
+    margin: 2rem 1rem;
+  }
+  .history {
+    margin: 2rem 1rem;
+    margin-bottom: 10rem;
+    font-size: 14px;
+  }
+  .send-btn {
+    gap: 0px;
+  }
+
+  .searched-item {
+    width: 300px;
+  }
+  .information {
+    margin: 2rem 1rem;
+  }
+}

@@ -1,0 +1,138 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.grid-logo {
+  height: 120px;
+  width: 120px;
+  margin: 20px 0px;
+}
+.login-right {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.header-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.login-heading {
+  color: #000;
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+.header-p {
+  color: #838383;
+  text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.header-container h1 {
+  color: #333;
+}
+
+.header-container p {
+  color: #666;
+}
+
+.login-container {
+  width: 300px;
+  margin: auto;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc; 
+  outline: none;
+}
+
+.input-label {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  pointer-events: none;
+  transition: 0.3s;
+  color: #999;
+}
+.login-input {
+  border-radius: 2px;
+  height: 30px;
+  width: 70%;
+  border-bottom: 1px solid var(--color-gray);
+  transition: border-bottom-color 0.3s ease; 
+}
+
+.login-input:focus {
+  border-bottom: 2px solid var(--color-secondary); 
+}
+
+.google-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  display: block;
+}
+
+.sign-in-box {
+  padding: 5px 40px;
+  margin-top: 50px;
+}
+.sign-in-box p:hover {
+  cursor: pointer;
+  color: #000;
+}
+.sign-in-box p {
+  font-size: 16px;
+  margin: 40px 0px;
+}
+.btn-login {
+  margin-top: 20px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rem;
+  border-top: 1px solid rgb(192, 192, 192);
+}
+
+
+.logo-footer{
+  margin: 10px 40px;
+  cursor: pointer;
+}
+.help-feedback{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.grid-dynamics{
+  padding-right: 50px;
+}

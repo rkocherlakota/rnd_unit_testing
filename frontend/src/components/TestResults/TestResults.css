@@ -1,0 +1,376 @@
+.container {
+  user-select: none;
+  margin-bottom: 0rem;
+
+  margin-top: 3.5rem;
+  background-color: rgb(244, 244, 244);
+}
+.content {
+  display: flex;
+  border-top: 1px solid rgb(168, 168, 168);
+}
+.info {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+  gap: 20px;
+  z-index: 2;
+  background: linear-gradient(to right, #dfebf1, #99c4da);
+}
+.info h3 {
+  text-decoration: underline;
+}
+.fa-arrow-left {
+  cursor: pointer;
+  font-size: 25px;
+}
+.fa-arrow-left:hover {
+  color: #7a7a7a;
+}
+
+.sidebar {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 50%;
+  /* max-width: 100%; */
+  height: 100%;
+  /* overflow-x: hidden; */
+  position: relative;
+  background-color: #eee;
+
+}
+.left_content {
+  background-color: #ffff;
+  height: 100vh;
+  overflow-y: scroll;
+  /* width: 100%; */
+  transition: width 2s ease;
+  /* margin-bottom: 10px; */
+  overflow-x: hidden;
+}
+
+.left_content::-webkit-scrollbar {
+  width: 2px;
+}
+
+.left_content::-webkit-scrollbar-thumb {
+  background-color: #7777;
+  border-radius: 3px;
+}
+
+.left_content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+.test-status {
+  display: flex;
+  flex-direction: column;
+   padding-top: 40px;
+   margin-left: 20px;
+}
+.fa-circle-check {
+  margin-right: 4px;
+  color: rgb(53, 215, 53);
+}
+.timeline {
+  width: 100%;
+  text-align: center;
+  margin-left: -13em;
+}
+.extraction {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 20px;
+  width: 185%;
+}
+.extraction h3 {
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+/* .extraction i{
+  font-size: 25px;
+} */
+.fa-code,
+.fa-rotate,
+.fa-list,
+.fa-file-lines,
+.fa-book {
+  font-size: 20px;
+  color: #0071bc;
+}
+.discription {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  position: relative;
+}
+.codebase {
+  width: 100%;
+  /* width: 60em; */
+}
+.codebase1 {
+  width: 24%;
+  /* width: 60em; */
+  background-color: #000;
+}
+.codebase-description {
+  margin-top: 20px;
+  /* width: 100%; */
+}
+.discription-h {
+  color: #000;
+}
+.codebase-para {
+  /* background-color: antiquewhite; */
+  padding: 15px;
+  width: 82%;
+}
+.code-snippet {
+  padding: 10px;
+  background-color: antiquewhite;
+  position: relative;
+  width: 95%;
+  font-size: 13px;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+  color: rgb(148, 148, 148);
+}
+
+/* .discription h4,
+p {
+  color: #454545;
+} */
+.test-cases {
+  background-color: antiquewhite;
+}
+.codebase-status {
+  color: green;
+}
+
+
+.arrow {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+}
+
+.arrow i {
+  font-size: 20px;
+}
+
+.arrow i:hover {
+  cursor: pointer;
+  content: "Close sidebar";
+  color: #ffab03;
+}
+.overall-report {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.right_content {
+  flex-grow: 1;
+  padding: 0px 22px;
+  width: 20%;
+  /* max-height: 100vh; */
+  overflow-y: scroll;
+  height: 100vh;
+}
+.right_content-item {
+  margin-bottom: 3rem;
+}
+.right_content::-webkit-scrollbar {
+  width: 3px;
+}
+
+.right_content::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+.codebase-heading {
+  font-size: 20px;
+  margin: 20px 0 10px 0;
+}
+
+.show-hide-link {
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #ffab03;
+  font-style: italic;
+}
+
+.show-hide-link:hover {
+  color: #7a7a7a;
+}
+
+.show-hide-link.hide {
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+.show-hide-link.show {
+  font-size: 14px;
+}
+
+.download {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 1rem auto;
+  /* margin-bottom: 10px; */
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.btn-download {
+  display: flex;
+  gap: 10px;
+  padding: 16px 124px;
+  background-color: #ffb800;
+  /* border: 1px solid black; */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+.btn-download:hover {
+  background-color: var(--color-secondary);
+}
+.btn-newtest,
+.btn-retry {
+  padding: 12px 35px;
+  display: flex;
+  /* gap: 1px; */
+  cursor: pointer;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-download,
+.fa-rotate-right,
+.fa-comment-medical {
+  font-size: 24px;
+}
+.btn-retry,
+.btn-newtest {
+  /* background-color:#42a7ef; */
+  display: flex;
+  gap: 12px;
+
+  border: 1px solid black;
+  background-color: #fff;
+  /* border: none; */
+  border-radius: 6px;
+}
+.btn-retry:hover,
+.btn-newtest:hover {
+  background-color: #e8e8e8;
+}
+
+.main-download {
+  font-size: 20px;
+}
+
+.download h4 {
+  margin-bottom: 1rem;
+}
+.download-heading {
+  display: flex;
+  gap: 10px;
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.codebase-nav {
+  background-color: #000;
+}
+
+.copy-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  padding: 10px 10px;
+  border-radius: 1px;
+  margin-bottom: -6px;
+  color: rgb(163, 163, 163);
+}
+.copy_icon {
+  display: flex;
+  gap: 10px;
+  color: rgb(163, 163, 163);
+  cursor: pointer;
+}
+
+/* .dark-mode{
+  background-color: #363636;
+} */
+
+.zoom-controls {
+  display: flex;
+  gap: 10px;
+}
+.zoom-controls button {
+  padding: 1px 20px;
+  border: 1px solid rgb(163, 163, 163);
+  border-radius: 4px;
+  color: rgb(163, 163, 163);
+  background-color: #000;
+  font-size: 20px;
+}
+.zoom-controls button:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.theme-controls {
+  display: flex;
+  gap: 10px;
+}
+.theme-controls button {
+  padding: 2px 6px;
+  border: 1px solid rgb(163, 163, 163);
+  border-radius: 4px;
+  color: rgb(163, 163, 163);
+  background-color: #000000;
+}
+.theme-controls button.active {
+  color: #fff;
+}
+.theme-controls button:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.resizer {
+  width: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: col-resize;
+  height: 100%;
+  background-color: var(--color-primary);
+}

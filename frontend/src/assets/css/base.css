@@ -1,0 +1,32 @@
+*{
+margin: 0px;
+padding: 0px;
+}
+
+body {
+    background: linear-gradient(to right, #DFEBF1, #99C4DA);
+    font-family: 'Fira Sans', sans-serif;
+  }
+  
+:root{
+    --color-gray:#A5A4A4;
+    --color-white:#fff;
+    --color-primary:#FFB800;
+    --color-secondary:#F7931D;
+    --color-gray-1:#636161;
+
+}
+
+.btn {
+    max-width: 150px;
+    background-color: #ffb800;
+    color: #000;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
